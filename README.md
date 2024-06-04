@@ -1,13 +1,13 @@
-## Autor: Vitor Deernose
+# Autor: Vitor Deernose
 "Email Verifier Software" is the solution to keeping your contact list clean. by www.email-unlimited.com
 ## Este repositorio
 Este repositorio compoe versões atualizadas de scripts para o email-soft, assim suportando php 7.0 até 8.2 (março/2024)
 
-# Siga tambem abaixo um pequeno tutorial para estar configurando seu email-soft 
+## Siga tambem abaixo um pequeno tutorial para estar configurando seu email-soft 
 
-# Guia de Instalação e Configuração do WSL com Debian e Apache
+## Guia de Instalação e Configuração do WSL com Debian e Apache
 
-# Instalar o WSL
+## Instalar o WSL
 
 1. Abra o PowerShell como administrador e execute o seguinte comando para instalar o WSL com Debian:
     ```bash
@@ -15,7 +15,7 @@ Este repositorio compoe versões atualizadas de scripts para o email-soft, assim
     ```
 2. Aguarde a conclusão da instalação.
 
-# Configuração do Debian
+## Configuração do Debian
 
 1. Acesse o Debian e digite o comando abaixo para obter o IP do seu WSL:
     ```bash
@@ -23,7 +23,7 @@ Este repositorio compoe versões atualizadas de scripts para o email-soft, assim
     ```
 2. Anote o IP exibido (por exemplo, `172.19.130.129`).
 
-# Redirecionamento de Portas
+## Redirecionamento de Portas
 
 1. Abra o CMD do Windows como administrador e execute os seguintes comandos para redirecionar as portas do Windows para o WSL:
 
@@ -42,7 +42,7 @@ Este repositorio compoe versões atualizadas de scripts para o email-soft, assim
     netsh interface portproxy show all
     ```
 
-# Instalar Dependências no Debian
+## Instalar Dependências no Debian
 
 1. Atualize o sistema:
     ```bash
@@ -78,7 +78,7 @@ Este repositorio compoe versões atualizadas de scripts para o email-soft, assim
     sudo service apache2 start
     ```
 
-# Verificar Instalação do PHP
+## Verificar Instalação do PHP
 
 1. Crie um arquivo `info.php` para verificar se o Apache2 e o PHP estão funcionando corretamente:
     ```bash
@@ -99,7 +99,7 @@ Este repositorio compoe versões atualizadas de scripts para o email-soft, assim
     http://localhost/info.php
     ```
 
-# Configurar Scripts PHP
+## Configurar Scripts PHP
 
 1. Crie os arquivos `verifyemail.php` e `sendemail.php` com os comandos:
     ```bash
@@ -109,19 +109,19 @@ Este repositorio compoe versões atualizadas de scripts para o email-soft, assim
 
 2. Adicione o conteúdo necessário a esses arquivos conforme o seu repositório.
 
-# Teste de Portas
+## Teste de Portas
 
 1. Faça um teste de portas online para garantir que a porta 80 está aberta. Caso ainda esteja fechada, será necessário abrir as portas também pelo Firewall do Windows Defender.
 
-# Segurança
+## Segurança
 
 1. Lembre-se de alterar a senha no script para maior segurança!
 
-# Observação
+## Observação
 
 - Os programas precisam que você escreva `http://` para funcionar. Escrever somente o IP, domínio ou subdomínio resultará em mau funcionamento.
 
-## Suporte
+# Suporte
 Além de reportar sugestoes e bugs aqui no GitHub 
 você pode entrar no meu Discord e tirar suas dúvidas agora mesmo!
 
