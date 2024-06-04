@@ -1,6 +1,6 @@
-# Autor: Vitor Deernose
+## Autor: Vitor Deernose
 "Email Verifier Software" is the solution to keeping your contact list clean. by www.email-unlimited.com
-# Este repositorio
+## Este repositorio
 Este repositorio compoe versões atualizadas de scripts para o email-soft, assim suportando php 7.0 até 8.2 (março/2024)
 
 # Siga tambem abaixo um pequeno tutorial para estar configurando seu email-soft 
