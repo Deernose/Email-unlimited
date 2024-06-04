@@ -1,5 +1,5 @@
 # Autor: Vitor Deernose
-Email Verifier software is the solution to keeping your contact list clean. by www.email-unlimited.com
+"Email Verifier Software" is the solution to keeping your contact list clean. by www.email-unlimited.com
 
 ## Suporte
 Além de reportar sugestoes e bugs aqui no GitHub 
