@@ -3,7 +3,7 @@
 # Este repositorio
 Este repositorio compoe versões atualizadas de scripts para o email-soft, assim suportando php 7.0 até 8.2 (março/2024)
 
-#Siga tambem abaixo um pequeno tutorial para estar configurando seu email-soft 
+# Siga tambem abaixo um pequeno tutorial para estar configurando seu email-soft 
 
 # Guia de Instalação e Configuração do WSL com Debian e Apache
 
