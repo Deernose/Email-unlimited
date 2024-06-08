@@ -8,6 +8,11 @@ $scriptpass = "E35DCBD20CC0";
 
 //------------ FIM CONFIGURAÇÕES ------------
 
+if (!isset($_GET["email"]) || !isset($_GET["password"])) {
+    echo "<check>96DA8A550749</check><server>Verify Script</server><message>400 Bad Request</message><log>Missing email or password parameter</log>";
+    return;
+}
+
 $email = $_GET["email"];
 $password = $_GET["password"];
 
