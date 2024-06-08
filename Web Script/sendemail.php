@@ -12,30 +12,33 @@ $method = $_SERVER['REQUEST_METHOD'];
 $email = null;
 $password = null;
 
-$log = "Script iniciado. Método de requisição: {$method}. ";
+$log = "Script iniciado. Método de requisição: {$method}. \n";
 
 if ($method === 'GET') {
     $email = isset($_GET["email"]) ? $_GET["email"] : null;
     $password = isset($_GET["password"]) ? $_GET["password"] : null;
-    $log .= "Usando \$_GET. ";
+    $log .= "Usando \$_GET. \n";
 } elseif ($method === 'POST') {
     $email = isset($_POST["email"]) ? $_POST["email"] : null;
     $password = isset($_POST["password"]) ? $_POST["password"] : null;
-    $log .= "Usando \$_POST. ";
+    $log .= "Usando \$_POST. \n";
 }
 
 if ($email === null || $password === null) {
     $email = isset($_REQUEST["email"]) ? $_REQUEST["email"] : null;
     $password = isset($_REQUEST["password"]) ? $_REQUEST["password"] : null;
-    $log .= "Usando \$_REQUEST como fallback. ";
+    $log .= "Usando \$_REQUEST como fallback. \n";
 }
 
-$log .= $email ? "email: ".$email." " : "email: NÃO RECEBIDO ";
-$log .= $password ? "password: ".$password." " : "password: NÃO RECEBIDO ";
-$log .= "\n\nSuperglobais:\n";
+$log .= $email ? "email: ".$email."\n" : "email: NÃO RECEBIDO\n";
+$log .= $password ? "password: ".$password."\n" : "password: NÃO RECEBIDO\n";
+$log .= "\nSuperglobais:\n";
 $log .= "\$_GET: " . print_r($_GET, true) . "\n";
 $log .= "\$_POST: " . print_r($_POST, true) . "\n";
 $log .= "\$_REQUEST: " . print_r($_REQUEST, true) . "\n";
+
+// Salva o log em um arquivo
+file_put_contents('request_log.txt', $log, FILE_APPEND);
 
 if ($email === null || $password === null) {
     echo "<check>96DA8A550749</check><server>Verify Script</server><message>400 Bad Request</message><log>Missing email or password parameter. {$log}</log>";
