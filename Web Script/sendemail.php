@@ -8,16 +8,20 @@ $scriptpass = "E35DCBD20CC0";
 
 //------------ FIM CONFIGURAÇÕES ------------
 
-if (!isset($_GET["email"]) || !isset($_GET["password"])) {
-    echo "<check>96DA8A550749</check><server>Verify Script</server><message>400 Bad Request</message><log>Missing email or password parameter</log>";
+$email = isset($_GET["email"]) ? $_GET["email"] : null;
+$password = isset($_GET["password"]) ? $_GET["password"] : null;
+
+$log = "Script iniciado. Parâmetros recebidos: ";
+$log .= $email ? "email: ".$email." " : "email: NÃO RECEBIDO ";
+$log .= $password ? "password: ".$password." " : "password: NÃO RECEBIDO ";
+
+if ($email === null || $password === null) {
+    echo "<check>96DA8A550749</check><server>Verify Script</server><message>400 Bad Request</message><log>Missing email or password parameter. {$log}</log>";
     return;
 }
 
-$email = $_GET["email"];
-$password = $_GET["password"];
-
 if ($password != $scriptpass) {
-    echo "<check>96DA8A550749</check><server>Verify Script</server><message>603 Wrong Password</message><log>Password provided does not match the script password</log>";
+    echo "<check>96DA8A550749</check><server>Verify Script</server><message>603 Wrong Password</message><log>Password provided does not match the script password. {$log}</log>";
     return;
 }
 
