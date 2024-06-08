@@ -15,6 +15,11 @@ $log = "Script iniciado. Parâmetros recebidos: ";
 $log .= $email ? "email: ".$email." " : "email: NÃO RECEBIDO ";
 $log .= $password ? "password: ".$password." " : "password: NÃO RECEBIDO ";
 
+$log .= "\n\nSuperglobais:\n";
+$log .= "\$_GET: " . print_r($_GET, true) . "\n";
+$log .= "\$_POST: " . print_r($_POST, true) . "\n";
+$log .= "\$_REQUEST: " . print_r($_REQUEST, true) . "\n";
+
 if ($email === null || $password === null) {
     echo "<check>96DA8A550749</check><server>Verify Script</server><message>400 Bad Request</message><log>Missing email or password parameter. {$log}</log>";
     return;
