@@ -1,5 +1,5 @@
 <?php
-// Send Email Script - Php 7.0+
+// Send Email Script - Php 7.4
 
 //------------ SETTINGS ------------
 
@@ -9,13 +9,19 @@ $from = "info@".$helo;          // Email From - if it's rejected, specify an exi
 $scriptpass = "E35DCBD20CC0";   // Script Password
 //------------ END SETTINGS ------------
 
+if (!isset($_REQUEST["email"]) || !isset($_REQUEST["password"]) || !isset($_REQUEST["message"])) {
+    error_log("Missing parameters: email, password, or message");
+    echo "<check>96DA8A550749</check><server>Send Script</server><message>400 Missing parameters</message><log>400 Missing parameters</log>";
+    return;
+}
+
 $email = $_REQUEST["email"];
 $password = $_REQUEST["password"];
 $message = $_REQUEST["message"];
 
 $message = str_replace('\"', '"', $message);
 
-// Adiciona registros de log para as entradas recebidas
+// Adicione logs para as entradas recebidas
 error_log("Received email: $email, password: $password, message: $message");
 
 if ($password != $scriptpass) {
