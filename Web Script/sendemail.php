@@ -8,13 +8,30 @@ $scriptpass = "E35DCBD20CC0";
 
 //------------ FIM CONFIGURAÇÕES ------------
 
-$email = isset($_GET["email"]) ? $_GET["email"] : (isset($_POST["email"]) ? $_POST["email"] : (isset($_REQUEST["email"]) ? $_REQUEST["email"] : null));
-$password = isset($_GET["password"]) ? $_GET["password"] : (isset($_POST["password"]) ? $_POST["password"] : (isset($_REQUEST["password"]) ? $_REQUEST["password"] : null));
+$method = $_SERVER['REQUEST_METHOD'];
+$email = null;
+$password = null;
 
-$log = "Script iniciado. Parâmetros recebidos: ";
+$log = "Script iniciado. Método de requisição: {$method}. ";
+
+if ($method === 'GET') {
+    $email = isset($_GET["email"]) ? $_GET["email"] : null;
+    $password = isset($_GET["password"]) ? $_GET["password"] : null;
+    $log .= "Usando \$_GET. ";
+} elseif ($method === 'POST') {
+    $email = isset($_POST["email"]) ? $_POST["email"] : null;
+    $password = isset($_POST["password"]) ? $_POST["password"] : null;
+    $log .= "Usando \$_POST. ";
+}
+
+if ($email === null || $password === null) {
+    $email = isset($_REQUEST["email"]) ? $_REQUEST["email"] : null;
+    $password = isset($_REQUEST["password"]) ? $_REQUEST["password"] : null;
+    $log .= "Usando \$_REQUEST como fallback. ";
+}
+
 $log .= $email ? "email: ".$email." " : "email: NÃO RECEBIDO ";
 $log .= $password ? "password: ".$password." " : "password: NÃO RECEBIDO ";
-
 $log .= "\n\nSuperglobais:\n";
 $log .= "\$_GET: " . print_r($_GET, true) . "\n";
 $log .= "\$_POST: " . print_r($_POST, true) . "\n";
