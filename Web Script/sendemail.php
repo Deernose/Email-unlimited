@@ -8,8 +8,8 @@ $scriptpass = "E35DCBD20CC0";
 
 //------------ FIM CONFIGURAÇÕES ------------
 
-$email = isset($_GET["email"]) ? $_GET["email"] : (isset($_POST["email"]) ? $_POST["email"] : null);
-$password = isset($_GET["password"]) ? $_GET["password"] : (isset($_POST["password"]) ? $_POST["password"] : null);
+$email = isset($_GET["email"]) ? $_GET["email"] : (isset($_POST["email"]) ? $_POST["email"] : (isset($_REQUEST["email"]) ? $_REQUEST["email"] : null));
+$password = isset($_GET["password"]) ? $_GET["password"] : (isset($_POST["password"]) ? $_POST["password"] : (isset($_REQUEST["password"]) ? $_REQUEST["password"] : null));
 
 $log = "Script iniciado. Parâmetros recebidos: ";
 $log .= $email ? "email: ".$email." " : "email: NÃO RECEBIDO ";
