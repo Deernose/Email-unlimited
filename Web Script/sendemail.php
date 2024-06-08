@@ -1,5 +1,5 @@
 <?php
-// Send Email Script - Php 7.4
+// Send Email Script - Php 7.0+
 
 //------------ SETTINGS ------------
 
@@ -15,18 +15,17 @@ $message = $_REQUEST["message"];
 
 $message = str_replace('\"', '"', $message);
 
+// Adiciona registros de log para as entradas recebidas
+error_log("Received email: $email, password: $password, message: $message");
+
 if ($password != $scriptpass) {
+    error_log("Wrong password: $password");
     echo "<check>96DA8A550749</check><server>Send Script</server><message>603 Wrong Password</message><log>603 Wrong Password</log>";
     return;
 }
 
 $result = SendMail($email, $from, $helo, $message);
 echo "<check>96DA8A550749</check><server>".$result[1]."</server><message>".$result[0]."</message><log>".$result[2].$message."</log>";
-
-// Function returns the result in array:
-// $result[0] - SMTP Server Replay
-// $result[1] - SMTP Server Host
-// $result[2] - SMTP Server Log
 
 function SendMail($email, $from, $helo, $message) {
     $result = array();
@@ -90,13 +89,17 @@ function SendMail($email, $from, $helo, $message) {
             $result[2] .= "> QUIT\r\n";
 
             fclose($Connect);
+        } else {
+            $result[0] = "500 Failed to connect to SMTP server ({$ConnectAddress}).";
+            error_log("Failed to connect: $reply");
+            return $result;
         }
     } else {
         $result[0] = "500 Can not connect E-Mail server ({$ConnectAddress}).";
+        error_log("Can not connect to $ConnectAddress");
         return $result;
     }
     $result[0] = $reply;
     return $result;
 }
-
 ?>
