@@ -55,6 +55,15 @@ Este repositorio compoe versões atualizadas de scripts para o email-soft, assim
     sudo apt install ufw
     sudo ufw allow 80/tcp
     sudo ufw allow 25/tcp
+    ```
+Caso esteja acessando via SSH sujiro o comando 
+    ```bash
+    sudo ufw allow ssh
+    sudo ufw allow 22/tcp
+    ```
+Depois disso `habilite` e `verifique` o UFW
+    ```bash
+    sudo ufw enable
     sudo ufw status
     ```
 
@@ -92,7 +101,7 @@ Este repositorio compoe versões atualizadas de scripts para o email-soft, assim
     ?>
     ```
 
-3. Acesse o IP da máquina ou `localhost` no navegador com `/info.php` para verificar:
+3. Acesse o IP da máquina ou `localhost` no navegador com `/info.php` para verificar (use ip addr na maquina se precisar):
     ```url
     http://192.168.1.1/info.php
     ou
@@ -102,12 +111,13 @@ Este repositorio compoe versões atualizadas de scripts para o email-soft, assim
 ## Configurar Scripts PHP
 
 1. Crie os arquivos `verifyemail.php` e `sendemail.php` com os comandos:
-    ```bash
-    sudo nano /var/www/html/verifyemail.php
-    sudo nano /var/www/html/sendemail.php
+     ```bash
+    cd /var/www/html/
     ```
-
-2. Adicione o conteúdo necessário a esses arquivos conforme o seu repositório.
+    ```bash
+    wget https://raw.githubusercontent.com/Deernose/Email-unlimited/main/Web%20Script/verifyemail.php
+    wget https://raw.githubusercontent.com/Deernose/Email-unlimited/main/Web%20Script/sendemail.php
+    ```
 
 ## Teste de Portas
 
